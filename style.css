@@ -2,6 +2,9 @@
  	font-family: 'Arial', 'sans-serif';
  	background: #000;
  	color: #999;
+ 	box-sizing: border-box;
+ 	padding: 0;
+ 	margin: 0; 
  }
  ul{
  	list-style: none;
@@ -21,10 +24,13 @@
  }
  .showcase{
  	width: 100%;
- 	height: 93vh;
+ 	height: 100vh;
  	position: relative;
- 	background: url('images/Netflix-Background.jpg') no-repeat center center/cover;
-
+ 	background: url('images/Netflix-Background.jpg');
+ 	background-repeat: no-repeat;
+ 	background-origin: border-box;
+ 	background-position: center;
+ 	background-size: cover;
  }
  .showcase::after{
  	content: '';
@@ -36,8 +42,6 @@
  	z-index: 1;
  	background: rgba(0 0 0 0.6);
  	box-shadow: inset 100px 100px 250px #000000, inset -100px -100px 250px #000000;
-
-
  }
 
 .showcase-top{
@@ -50,13 +54,31 @@
 	width: 180px;
 	position: absolute;
 	top:50%;
-
+	left: 5px;
 }
 .showcase-top a{
 	position: absolute;
 	top: 50%;
 	right: 0;
 	transform: translate(-50%, -50%);
+}
+.button{
+	display: inline;
+	background: red;
+	color: #fff;
+	padding: 6px 22px;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0 1px rgba(0,0,0,0.5);
+	border-radius: 2px;
+}
+.button:hover{
+	opacity: 0.9;
+}
+.buttton-rouded{
+	border-radius: 5px;
 }
 .showcase-content{
 	position: relative;
@@ -73,23 +95,36 @@
 	font-weight: 700;
 	font-size: 80px;
 	line-height: 1;
-	margin: 0 0 32px;
+	margin: 0 0 20px;
 }
 .showcase-content p{
 	color: #fff;
 	font-weight: 400;
 	font-size: 32px;
 	line-height: 1.25;
-	margin: 0 0 32px;
+	margin: 0 0 20px;
+}
+form{
+	margin: 0;
+	padding: 0;
 }
 input[type=text]{
 	height: 50px;
 	width: 500px;
-	margin: 0px;
+	margin: 0;
+	margin-top: -5px;
+	margin-right: -5px;
 }
 input,
 input::-webkit-input-placeholder {
     font-size: 20px;
+    padding-left: 15px;
+}
+.btn-xl{
+	font-size: 26px;
+	padding: 12px 25px;
+	/*margin: 5px 0;*/
+	/*margin-left: -5px;*/
 }
 
 .tabs{
@@ -109,6 +144,8 @@ input::-webkit-input-placeholder {
 	 color: white;
 	 cursor: pointer;
 }
+
+
 .tab-content-1, .tab-content-2, .tab-content-3{
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -116,6 +153,7 @@ input::-webkit-input-placeholder {
 	align-items: center;
 	justify-content: center;
 }
+
 .inner-content-1{
 	color: white;
 	text-align: left;
@@ -172,35 +210,6 @@ input::-webkit-input-placeholder {
 	border-radius: 5px;
 }
 
-.button{
-	display: inline;
-	background: red;
-	color: #fff;
-	padding: 6px 22px;
-	font-size: 16px;
-	text-align: center ;
-	cursor: pointer;
-	margin-right: 8px;
-	margin-left: -2px;
-	outline: none;
-	box-shadow: 0 1px rgba(0,0,0,0.5);
-	border-radius: 2px;
-}
-.button:hover{
-	opacity: 0.9;
-}
-.buttton-rouded{
-	border-radius: 5px;
-
-}
-.btn-xl{
-	font-size: 26px;
-	padding: 12px 25px;
-	text-transform: uppercase;
-	text-align: center;
-	margin-left: 0px;
-	margin-top: 4px;
-}
 .line{
 	width:100%;
 	height: 9px;
@@ -209,7 +218,7 @@ input::-webkit-input-placeholder {
 @media (max-width: 960px) {
 
 	.showcase {
-		height: 70vh;
+		height: 80vh;
 	}
 
 	/*.hide-sm {
@@ -263,22 +272,33 @@ input::-webkit-input-placeholder {
 	}
 
 	.tab-content-2 {
-		display: block;
-		text-align: center;
-	}
-
-	.tab-content-2 {
-		margin-top: 2rem;
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-gap: 2rem;
 		text-align: center;
 	}
-
+	.inner-content-1, .inner-content-2, .inner-content-3{
+		padding: 0;
+		text-align: center;
+		font-size: 1.3rem;
+	}
+	.tab-content-1 img,.tab-content-2 img,.tab-content-3 img{
+		margin: auto;
+		width: 450px;
+		height: 300px;
+	}
 	.btn-xl {
 		font-size: 1rem;
 		padding: 1.2rem 1.6rem;
 		text-transform: uppercase;
+	}
+	input[type=text]
+	{
+		width: 300px;
+		margin-right: 0;
+	}
+	.btn-xl{
+		display: block;
 	}
 }
 
